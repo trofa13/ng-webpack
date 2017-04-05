@@ -1,4 +1,4 @@
-// require('../css/index.scss');
+require('../css/index.scss');
 
 import angular from 'angular';
 import AppComponent from './app.component.js';
