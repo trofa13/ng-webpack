@@ -5,6 +5,6 @@ import AppComponent from './app.component.js';
 import Components from './components';
 
 angular.module('olabs', [
-    Components.name
+  Components.name
 ])
     .directive('app', AppComponent);

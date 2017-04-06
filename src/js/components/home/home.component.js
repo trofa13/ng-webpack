@@ -2,12 +2,12 @@ import template from 'html-loader!./home.html';
 import controller from './home.controller';
 
 let homeComponent = {
-    restrict: 'E',
-    scope: {},
-    template,
-    controller,
-    controllerAs: 'vm',
-    bindToController: true
+  restrict: 'E',
+  scope: {},
+  template,
+  controller,
+  controllerAs: 'vm',
+  bindToController: true
 };
 
 export default homeComponent;
