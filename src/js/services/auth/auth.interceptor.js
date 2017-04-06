@@ -1,4 +1,4 @@
-let AuthInterceptor = function ($q) {
+let AuthInterceptor = function ($q, $location) {
   let request = (config) => {
     var token = sessionStorage.getItem('token');
     if (token) {
@@ -8,8 +8,10 @@ let AuthInterceptor = function ($q) {
   };
 
   let responseError = (error) => {
-    if (error.status === 403) {
+    if (error.status === 401) {
+      // No Access
       sessionStorage.removeItem('token');
+      $location.path('/login');
     } else {
       return $q.reject(error);
     }
@@ -17,5 +19,5 @@ let AuthInterceptor = function ($q) {
 
   return { request, responseError };
 };
-AuthInterceptor.$inject = ['$q'];
+AuthInterceptor.$inject = ['$q', '$location'];
 export default AuthInterceptor;

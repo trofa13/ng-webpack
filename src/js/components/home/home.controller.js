@@ -1,10 +1,10 @@
 class HomeController {
-  constructor ($http) {
-    this.name = 'home';
-
-    this.check = function () {
-      // $http.get('http://lab.ovg.me/contact_book/api/contacts_list');
-    };
+  constructor (HomeFactory) {
+    this.contacts = [];
+    HomeFactory.getContacts()
+      .then(contacts => {
+        this.contacts = contacts;
+      });
   }
 }
 
