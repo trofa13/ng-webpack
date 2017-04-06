@@ -54,7 +54,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --inline --open --content-base=dev",
+    "dev": "./node_modules/.bin/webpack-dev-server --inline --content-base=dev",
     "build": "./node_modules/.bin/webpack --config='./webpack.config.build.js'",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --auto-watch",

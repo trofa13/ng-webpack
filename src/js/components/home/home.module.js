@@ -12,9 +12,23 @@ let homeModule = angular.module('home', [
     $stateProvider
       .state('home', {
         url: '/',
-        template: '<home></home>'
+        template: '<home></home>',
+        resolve: { authenticate: authenticate }
       });
   })
     .component('home', homeComponent);
 
 export default homeModule;
+
+authenticate.$inject = ['$q', 'User', '$state', '$timeout'];
+function authenticate ($q, user, $state, $timeout) {
+  if (user.isAuthenticated()) {
+    return $q.resolve();
+  } else {
+    $timeout(function () {
+      // TODO: no need in timeout?
+      $state.go('login');
+    });
+    return $q.reject();
+  }
+}

@@ -13,6 +13,10 @@ module.exports = {
         filename: "js/[name].js"
     },
     devtool: "source-map",
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: true
+    },
     module:{
         preLoaders: [
             
