@@ -1,19 +1,27 @@
-let UserFactory = function () {
+let UserFactory = function ($http) {
   const user = {};
+
+  let logIn = (email, password) => {
+    return $http.post('http://lab.ovg.me/contact_book/api/login', {
+      email,
+      password
+    })
+      .then(data => {
+        sessionStorage.setItem('token', data.data.token);
+        return data;
+      });
+  };
 
   let getUser = () => {
     return user;
   };
 
-  let isSignedIn = () => {
-    return user.isSignedIn;
-  };
-
   let isAuthenticated = () => {
-    return false;
+    return !!sessionStorage.getItem('token');
   };
 
-  return { getUser, isSignedIn, isAuthenticated };
+  return { getUser, isAuthenticated, logIn };
 };
 
+UserFactory.$inject = ['$http'];
 export default UserFactory;

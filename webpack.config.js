@@ -32,8 +32,12 @@ module.exports = {
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader", { publicPath: '../' })
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/,
-                loader: "file-loader?name=[path][name].[ext]!img?minimize"
+              test: /\.(jpe?g|png|gif|svg)$/,
+              loader: "file-loader?name=[path][name].[ext]!img?minimize"
+            },
+            {
+              test: /\.(eot|svg|ttf|woff|woff2)$/,
+              loader: 'file?name=[path][name].[ext]'
             }
         ]
     },

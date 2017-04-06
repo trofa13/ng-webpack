@@ -1,3 +1,34 @@
 <main>
-LOGIN
+    <h1 class="h1">Логин</h1>
+    <div class="jumbotron ">
+        <!--<div uib-alert-->
+             <!--dismiss-on-timeout="8000"-->
+             <!--ng-repeat="alert in LoginCtrl.alerts"-->
+             <!--ng-class="'alert-' + (alert.type || 'warning')"-->
+             <!--close="LoginCtrl.closeAlert($index)">-->
+            <!--{{alert.msg}}-->
+        <!--</div>-->
+        <form novalidate class="simple-form clearfix" ng-submit="vm.logIn()">
+            <div class="form-group">
+                <label for="email">Your login please</label>
+                <input ng-model="vm.email" type="text" class="form-control" placeholder="e-mail" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="pass">Your pass please</label>
+                <input ng-model="vm.password" type="password" class="form-control" placeholder="password" id="pass" required>
+            </div>
+            <button type="submit" class="btn btn-success pull-right">Submit</button>
+        </form>
+    </div>
+
+
+    <style>
+        .simple-form.ng-submitted input.ng-invalid {
+            background-color: #FA787E;
+        }
+
+        .simple-form .btn-success{
+            margin-top: 15px;
+        }
+    </style>
 </main>

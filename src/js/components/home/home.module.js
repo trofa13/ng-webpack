@@ -6,8 +6,9 @@ let homeModule = angular.module('home', [
   uiRouter
 ])
 
-  .config(($stateProvider, $urlRouterProvider) => {
+  .config(($stateProvider, $urlRouterProvider, $httpProvider) => {
     $urlRouterProvider.otherwise('/');
+    $httpProvider.interceptors.push('AuthInterceptor');
 
     $stateProvider
       .state('home', {
