@@ -1,7 +1,19 @@
 <main>
+    <form novalidate class="simple-form clearfix" ng-submit="vm.addContact()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input ng-model="vm.name" type="text" class="form-control" placeholder="name" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input ng-model="vm.surname" type="text" class="form-control" placeholder="surname" id="surname" required>
+        </div>
+        <button type="submit" class="btn btn-success pull-right">Submit</button>
+    </form>
     <ul>
         <li ng-repeat="contact in vm.contacts">
             {{contact.name}} {{contact.surname}}
+            <button type="button" ng-click="vm.delete(contact.id)">delete</button>
         </li>
     </ul>
 </main>
